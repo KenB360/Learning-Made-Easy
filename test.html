@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Generation Example</title>
+    <style>
+        /* Style the sidebar */
+        .sidebar {
+            width: 300px;
+            height: 400px;
+            padding: 20px;
+            background-color: #e0f7fa;
+            color: #00796b;
+            overflow-y: auto;
+            font-family: Arial, sans-serif;
+            border: 1px solid #00796b;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Scrollbar styling */
+        .sidebar::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .sidebar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background-color: #5a8f7b;
+            border-radius: 10px;
+            border: 2px solid #f1f1f1;
+        }
+
+        /* Button styling */
+        button {
+            padding: 10px 15px;
+            background-color: #00796b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #004d40;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <h2>Sidebar Content</h2>
+        <p>This is an example of a sidebar that will be converted to a PDF.</p>
+        <ul>
+            <li>List item 1</li>
+            <li>List item 2</li>
+            <li>List item 3</li>
+        </ul>
+        <p>More content can go here.</p>
+    </div>
+
+    <button id="pdfButton">Generate PDF</button>
+
+    <!-- Include html2canvas and jsPDF libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+    <script>
+        document.getElementById("pdfButton").addEventListener("click", () => {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Use html2canvas to capture the sidebar as an image
+            html2canvas(document.querySelector(".sidebar")).then(canvas => {
+                const imgData = canvas.toDataURL("image/png");
+
+                // PDF page dimensions
+                const imgWidth = 190; // Width for PDF (A4 page width)
+                const pageHeight = 290; // A4 page height
+                const imgHeight = canvas.height * imgWidth / canvas.width;
+                let heightLeft = imgHeight;
+                let position = 0;
+
+                // Add the image to PDF, handling multiple pages if necessary
+                while (heightLeft > 0) {
+                    doc.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
+                    heightLeft -= pageHeight;
+                    position -= pageHeight;
+                    if (heightLeft > 0) {
+                        doc.addPage();
+                    }
+                }
+
+                // Save the generated PDF
+                doc.save("sidebar-content.pdf");
+            });
+        });
+    </script>
+
+</body>
+
+</html>

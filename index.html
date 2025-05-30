@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Learning Made Easy</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-left">
+            <div class="header__menu-btn">
+                <img src="logo.png" alt="">
+            </div>
+            <a href="#" class="header__logo">
+                <h1>LearningMadeEasy</h1>
+            </a>
+        </div>
+        <div class="header-middle">
+            <span class="header__search--icon"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                    viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z">
+                    </path>
+                </svg>
+            </span>
+            <input id="search-input" type="text" placeholder="Search for subjects or topics">
+        </div>
+        <div class="header-right">
+            <i class='bx bx-phone-call'></i>
+            <p>(+233 245262564)</p>
+            <p>(+233 554916490)</p>
+        </div>
+    </header>
+    <section class="home-section" id="home">
+        <div class="home-content">
+            <div class="badge-text text-uppercase">Empowering Minds, One Summary at a Time.</div>
+            <h1 class="display-4 mb-4 text-capitalize">Unlock Knowledge, Transform Lives.</h1>
+            <p class="text-muted mb-5 fs-5">Providing easy access to book summaries for students who need them the most.
+                Empowering education, anywhere and anytime.</p>
+            <div class="home-buttons">
+                <a href="#booksgallery"><button>Explore Now</button></a>
+            </div>
+        </div>
+        <div class="home-img"><img src="home image 1.png" alt="images/home image 1.jpg"></div>
+    </section>
+    <section class="books-gallery" id="booksgallery">
+        <div class="section-title-center text-center"><span>Books Gallery</span>
+            <h2 class="display-6">Explore Courses</h2>
+            <div class="section-divider divider-triangle"></div>
+        </div>
+        <div class="card-section">
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="Academic writing.png" alt="Subject Image">
+                </div>
+                <div class="card-content-container">
+                    <h3 class="subject-title">Academic Writing</h3>
+                    <p class="subject-description">Explore Techniques of Reading, Structure of Essay, Errors and Plagiarism topics.</p>
+                </div>
+                <button class="view-topics-btn" onclick="toggleSidebar('Mathematics')">View Topics</button>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="Business Management.jpg" alt="Introduction to Business Administration Image">
+                </div>
+                <div class="card-content-container">
+                    <h3 class="subject-title"> Introduction to Business Administration</h3>
+                    <p class="subject-description">Explore Entrepreneurship Skills, Business Ownership,Ennovation and Marketing.</p>
+                </div>
+                <button class="view-topics-btn" onclick="toggleSidebar('Integrated Science')">View Topics</button>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="Agriculture .jpg" alt="Introduction to Public Administration Image">
+                </div>
+                <div class="card-content-container">
+                    <h3 class="subject-title"> Introduction to Public Administration</h3>
+                    <p class="subject-description">Dive into Politics-Administration, Dichotomy,Bureaucracy, B-ready and Decentralization.</p>
+                </div>
+                <button class="view-topics-btn" onclick="toggleSidebar('General Agric')">View Topics</button>
+            </div>
+            <!-- Card 4 -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="French.jpg" alt="French Image">
+                </div>
+                <div class="card-content-container">
+                    <h3 class="subject-title">French I</h3>
+                    <p class="subject-description">Dive into Poetry, Drama, and Classic Novels.</p>
+                </div>
+                <button class="view-topics-btn" onclick="toggleSidebar('Business Management')">View Topics</button>
+            </div>
+            <!-- Card 5 -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="Linguistics.png" alt="Linguistics Image">
+                </div>
+                <div class="card-content-container">
+                    <h3 class="subject-title">Linguistics</h3>
+                    <p class="subject-description"> Explore Origins of Human Language, Phonetics,Neuroliguistics and Sociolinguistics</p>
+                </div>
+                <button class="view-topics-btn" onclick="toggleSidebar()">View Topics</button>
+            </div>
+            <!-- Card 6 -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="Principle of Management.png" alt="Principle of Management Image">
+                </div>
+                <div class="card-content-container">
+                    <h3 class="subject-title">Principles of Management</h3>
+                    <p class="subject-description">Discover techniques and tools for creating visual art through drawing and
+                        painting.</p>
+                </div>
+                <button class="view-topics-btn" onclick="toggleSidebar()">View Topics</button>
+            </div>
+            
+            <!-- Card 7 -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="Psychology In Everyday Living.png" alt="Psychology In Everyday Living Image">
+                </div>
+                <div class="card-content-container">
+                    <h3 class="subject-title">Psychology In Everyday Living</h3>
+                    <p class="subject-description">Learn the art of shaping materials into three-dimensional forms.</p>
+                </div>
+                <button class="view-topics-btn" onclick="toggleSidebar()">View Topics</button>
+            </div>
+
+            
+            <!-- Card 8 -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="Introduction to Computing.png" alt="Introduction to Computing Image">
+                </div>
+                <div class="card-content-container">
+                    <h3 class="subject-title">Introduction to Computing</h3>
+                    <p class="subject-description">Learn principles of recording and reporting financial information.</p>
+                </div>
+                <button class="view-topics-btn" onclick="toggleSidebar()">View Topics</button>
+            </div>
+            
+            <!-- Card 9 -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="Literature.jpg" alt="Literature Image">
+                </div>
+                <div class="card-content-container">
+                    <h3 class="subject-title">Theatre Art</h3>
+                    <p class="subject-description">Explore works of fiction, poetry, and drama from around the world.</p>
+                </div>
+                <button class="view-topics-btn" onclick="toggleSidebar()">View Topics</button>
+            </div>
+            
+            <!-- Card 10 -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="French.jpg" alt="French Language Image">
+                </div>
+                <div class="card-content-container">
+                    <h3 class="subject-title">French II</h3>
+                    <p class="subject-description">Study the French language, culture, and basic communication skills.</p>
+                </div>
+                <button class="view-topics-btn" onclick="toggleSidebar()">View Topics</button>
+            </div>
+            
+            <!-- Card 11 -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="Cost Accounting.jpg" alt="Critical Thinking and Practical Reasoning Image">
+                </div>
+                <div class="card-content-container">
+                    <h3 class="subject-title">Critical Thinking and Practical Reasoning</h3>
+                    <p class="subject-description">Focus on cost analysis, budgeting, and control in business contexts.</p>
+                </div>
+                <button class="view-topics-btn" onclick="toggleSidebar()">View Topics</button>
+            </div>
+            
+            <!-- Card 12 -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="Economics.jpg" alt="Economics Image">
+                </div>
+                <div class="card-content-container">
+                    <h3 class="subject-title">Economics</h3>
+                    <p class="subject-description">Study microeconomics, macroeconomics, and global economic theories.</p>
+                </div>
+                <button class="view-topics-btn" onclick="toggleSidebar()">View Topics</button>
+            </div>
+            
+            <!-- Card 13 -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="Chris.jpg" alt="CRS Image">
+                </div>
+                <div class="card-content-container">
+                    <h3 class="subject-title">Critical Thinking and Practical Reasoning</h3>
+                    <p class="subject-description">Explore biblical texts, teachings, and religious principles.</p>
+                </div>
+                <button class="view-topics-btn" onclick="toggleSidebar()">View Topics</button>
+            </div>
+            
+            <!-- Card 14 -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="Animal Husbandry.jpg" alt="Animal Husbandry Image">
+                </div>
+                <div class="card-content-container">
+                    <h3 class="subject-title">Animal Husbandry</h3>
+                    <p class="subject-description">Learn about livestock management, breeding, and care practices.</p>
+                </div>
+                <button class="view-topics-btn" onclick="toggleSidebar()">View Topics</button>
+            </div>
+            
+            <!-- Card 15 -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="Physics.jpg" alt="Physics Image">
+                </div>
+                <div class="card-content-container">
+                    <h3 class="subject-title">Physics</h3>
+                    <p class="subject-description">Explore the laws of motion, energy, waves, and the nature of matter.</p>
+                </div>
+                <button class="view-topics-btn" onclick="toggleSidebar()">View Topics</button>
+            </div>
+            
+            <!-- Card 16 -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="Chemistry.jpg" alt="Chemistry Image">
+                </div>
+                <div class="card-content-container">
+                    <h3 class="subject-title">Chemistry</h3>
+                    <p class="subject-description">Study chemical reactions, elements, and compounds.</p>
+                </div>
+                <button class="view-topics-btn" onclick="toggleSidebar()">View Topics</button>
+            </div>
+            
+            <!-- Card 17 -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="Music.jpg" alt="Music Image">
+                </div>
+                <div class="card-content-container">
+                    <h3 class="subject-title">Music</h3>
+                    <p class="subject-description">Understand music theory, history, and performance.</p>
+                </div>
+                <button class="view-topics-btn" onclick="toggleSidebar()">View Topics</button>
+            </div>
+            
+            <!-- Card 18 -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="Twi.jpg" alt="Twi Language Image">
+                </div>
+                <div class="card-content-container">
+                    <h3 class="subject-title">Twi</h3>
+                    <p class="subject-description">Learn the Twi language, common phrases, and cultural expressions.</p>
+                </div>
+                <button class="view-topics-btn" onclick="toggleSidebar()">View Topics</button>
+            </div>
+            
+            <!-- Card 19 -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="Ga.jpg" alt="Ga Language Image">
+                </div>
+                <div class="card-content-container">
+                    <h3 class="subject-title">Ga</h3>
+                    <p class="subject-description">Explore the Ga language and understand key linguistic structures.</p>
+                </div>
+                <button class="view-topics-btn" onclick="toggleSidebar()">View Topics</button>
+            </div>
+            
+            <!-- Card 20 -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="Biology.jpg" alt="Biology Image">
+                </div>
+                <div class="card-content-container">
+                    <h3 class="subject-title">Biology</h3>
+                    <p class="subject-description">Study living organisms, cells, genetics, and ecosystems.</p>
+                </div>
+                <button class="view-topics-btn" onclick="toggleSidebar()">View Topics</button>
+            </div>
+            
+            <!-- Card 21 -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="Geography.jpg" alt="Geography Image">
+                </div>
+                <div class="card-content-container">
+                    <h3 class="subject-title">Geography</h3>
+                    <p class="subject-description">Examine earth’s physical features, climates, and human impact on the planet.</p>
+                </div>
+                <button class="view-topics-btn" onclick="toggleSidebar()">View Topics</button>
+            </div>
+        </div>
+
+        <!-- Sidebar for topics -->
+        <div class="sidebar" id="sidebar">
+            <span class="close-sidebar" onclick="toggleSidebar()">✖</span>
+            <h4 id="sidebar-title">Topics</h4>
+            <ul class="topic-list" id="sidebar-topics">
+                <!-- Placeholder for topics that will be updated dynamically -->
+            </ul>
+        </div>
+    </section>
+    <a href="#home" class="back-to-home"><i class='bx bx-up-arrow-alt'></i></a>
+    <script src="script.js"></script>
+    <script>
+       const topics = {
+            'Mathematics': [
+                'Angles', 'Trigonometry', 'Sequence & Series', 'Circle Theorem', 'Sets',
+                'Surds', 'Relations & Functions', 'Mensuration', 'Logical Reasoning',
+                'Linear Equations & Inequalities', 'Indices & Logarithm', 'Plane Geometry',
+                'Bearings & Vectors', 'Permutation & Combination', 'Calculus',
+                'Modulo Arithmetic', 'Algebra', 'Probability & Statistics', 'Number Systems',
+                'Variation', 'Matrices'
+            ],
+            'Integrated Science': [
+                'Food and Nutrition', 'Energy', 'Electronics', 'Atmosphere and Climate Change', 'Digestive System','Skeletal System',
+                'Energy Transformation', 'Magnetism', 'Weather and Climate',
+                'Forces and Motion', 'Acids, Bases and Salts', 'Measurements',
+                'Introduction to Integrated Science', 'Cell and Cell Division', 'Matter',
+                  'Solar Energy', 'Diffusion and Osmosis',
+                'Dentition in Humans', 'Reproduction and Growth in Plants',
+                 'Ecosystem', 'Infections and Diseases',
+                'Exploitation of Minerals', 'Rusting', 'Corrosion in Metals',
+                'Variation and Inheritance', 'Heat Energy', 'Light Energy',
+                'Organic and Inorganic Compounds', 'Crop Production',
+                'Life Cycle of Pests and Parasites', 'Endogenous Technology',
+                'Biodiversity', 'Work and Machines', 'Safety in the Community',
+                'Circulatory System', 'Hydrological Cycle', 'Soil Conservation',
+                'Water', 'Water Conservation', 'Air Movement', 'Nitrogen Cycle',
+                'Nuclear Energy'
+            ],
+            'Business Management': [
+                 'E-Commerce','Globalization','Stock Exchange','Delegation','Corporate Governance', 'Human Resource Management', 'Leadership',
+                'Strategic Management', 'Marketing', 'Pricing',
+                'Social Entrepreneurship', 'Sustainability', 'Sustainable Business Strategies',
+                'Advertising', 'Strategic Planning', 'Communication', 'Corporate Finance',
+                'Marketing and Consumer Behavior', 'Ethics and Social Responsibility',
+                'Innovation', 'Technology and Innovation', 'AI and Business Processes',
+                'Corporate Social Responsibility'
+            ],
+            'General Agric': [
+                'Agricultural Extension', 'Agricultural Engineering', 'Sustainable Agriculture', 
+                'Horticulture', 'Agricultural Economics', 'Agricultural Law', 'Animal Science',
+                'Farm Business Management', 'Social Science', 'Crop Production',
+                'Animal Production', 'Introduction to Animal Mechanisation', 'Farm Power'
+            ]
+        };
+
+        function toggleSidebar(subject = null, matchedTopics = []) {
+            const sidebar = document.getElementById('sidebar');
+            const sidebarTitle = document.getElementById('sidebar-title');
+            const sidebarTopics = document.getElementById('sidebar-topics');
+
+            if (subject) {
+                sidebarTitle.textContent = `Topics in ${subject}`;
+                const topicsToDisplay = matchedTopics.length > 0 ? matchedTopics : topics[subject];
+                sidebarTopics.innerHTML = topicsToDisplay
+                    .map(topic => `<li><a href="summary.html?topic=${encodeURIComponent(topic)}">${topic}</a></li>`)
+                    .join('');
+                sidebar.classList.add('show');
+            } else {
+                sidebar.classList.remove('show');
+            }
+        }
+
+        document.getElementById('search-input').addEventListener('input', function (event) {
+            const query = event.target.value.toLowerCase().trim();
+            let foundSubject = null;
+            let matchedTopics = [];
+
+            if (query) {
+                for (const [subject, subjectTopics] of Object.entries(topics)) {
+                    if (subject.toLowerCase().includes(query)) {
+                        // If subject name matches, display all topics under that subject
+                        foundSubject = subject;
+                        matchedTopics = [];
+                        break;
+                    } else {
+                        // Check for topic matches within this subject
+                        matchedTopics = subjectTopics.filter(topic => topic.toLowerCase().includes(query));
+                        if (matchedTopics.length > 0) {
+                            foundSubject = subject;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if (foundSubject) {
+                toggleSidebar(foundSubject, matchedTopics);
+            } else {
+                toggleSidebar();
+            }
+        });
+
+        document.addEventListener('click', function (event) {
+            const sidebar = document.getElementById('sidebar');
+            if (sidebar.classList.contains('show') && !sidebar.contains(event.target) && !event.target.closest('.view-topics-btn') && event.target.id !== 'search-input') {
+                sidebar.classList.remove('show');
+            }
+        });
+
+    </script>
+    <script>
+        // Select the sidebar element
+            const sidebar = document.querySelector('.sidebar');
+
+            // Function to show scrollbar on scroll
+            function handleScroll() {
+                sidebar.classList.remove('hide-scrollbar');
+
+                // Set a timer to re-hide the scrollbar after scrolling stops
+                clearTimeout(sidebar.hideScrollTimeout);
+                sidebar.hideScrollTimeout = setTimeout(() => {
+                    sidebar.classList.add('hide-scrollbar');
+                }, 500); // Adjust timeout (500ms) as needed
+            }
+
+            // Attach the scroll event listener to show/hide scrollbar
+            sidebar.addEventListener('scroll', handleScroll);
+
+            // Initially hide the scrollbar
+            sidebar.classList.add('hide-scrollbar');
+
+    </script>
+
+<footer style="background-color: #2c665d; width: 750px; height: 100px;
+position: absolute;">
+
+
+</footer>
+</body>
+
+</html>

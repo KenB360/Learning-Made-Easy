@@ -1,0 +1,155 @@
+ body {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .summary-container {
+     width: 80%;
+     background-color: #ffffff;
+     padding: 25px 100px;
+     border-radius: 8px;
+     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+     overflow-y: auto;
+     text-align: left;
+     /* Limits height to create a scrollable container */
+ }
+
+ #summary-title {
+     color: #2c3e50;
+     margin: 20px 0;
+     margin-top: 110px;
+     font-size: 4.5rem !important;
+     text-align: center;
+     width: 70%;
+ }
+
+ .subtopic {
+     font-weight: bold;
+     font-size: 2rem;
+     color: #2c3e50;
+     text-align: center;
+ }
+
+ #summary-text p.visible .subtopic {
+     margin-bottom: 17px !important;
+ }
+
+ #summary-text p {
+     color: #4d4d4d;
+     line-height: 1.6;
+     margin-bottom: 5px;
+     font-size: 1.4em !important;
+     font-weight: 400;
+     opacity: 0;
+     transform: translateY(20px);
+     transition: opacity 0.5s ease, transform 0.5s ease;
+ }
+
+ #summary-text p.visible {
+     opacity: 1;
+     transform: translateY(0);
+ }
+
+ /* Table of contents styling (optional) */
+ .toc {
+     background-color: #f0f0f0;
+     padding: 10px;
+     border-radius: 4px;
+     margin-bottom: 20px;
+     font-size: 0.9em;
+ }
+
+ .toc h4 {
+     font-weight: bold;
+     color: #2c3e50;
+ }
+
+ .toc ul {
+     list-style: none;
+     padding-left: 0;
+ }
+
+ .toc ul li {
+     margin: 8px 0;
+ }
+
+ .toc ul li a {
+     color: #2c665d;
+     text-decoration: none;
+ }
+
+ /* Animation for each line */
+ #summary-content span {
+     font-family: Arial, Helvetica, sans-serif !important;
+     display: block;
+     opacity: 0;
+     transform: translateY(20px);
+     transition: opacity 0.5s ease, transform 0.5s ease;
+ }
+
+ #summary-content span.show {
+     opacity: 1;
+     transform: translateY(0);
+ }
+
+ .download-pdf {
+     display: inline-flex;
+     position: fixed;
+     right: 50px;
+     top: 110px;
+     justify-content: center;
+     align-items: center;
+     z-index: 5000;
+     padding: .8rem;
+     background: #2c665d;
+     border-radius: .8rem;
+     transition: .5s ease;
+     font-size: 1.3rem;
+     color: white;
+ }
+
+ .download-pdf:hover {
+     box-shadow: 0 0 1rem #2c665d;
+ }
+
+ .download-pdf i {
+     font-size: 2.1rem;
+     color: white;
+ }
+
+ @media (max-width:768px) {
+     .summary-container {
+         width: 100%;
+         background-color: #ffffff;
+         padding: 25px;
+     }
+         .download-pdf {
+             display: inline-flex;
+             position: fixed;
+             right: 10px;
+             top: 90px;
+             justify-content: center;
+             align-items: center;
+             z-index: 5000;
+             padding: .8rem;
+             background: #2c665d;
+             border-radius: .8rem;
+             transition: .5s ease;
+             font-size: 1rem;
+             color: white;
+         }
+    
+         .download-pdf:hover {
+             box-shadow: 0 0 1rem #2c665d;
+         }
+    
+         .download-pdf i {
+             font-size: 1.5rem;
+             color: white;
+         }
+         #summary-title{
+            width: 100%;
+         }
+ }

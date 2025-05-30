@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary</title>
+    <link rel="stylesheet" href="summary.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-left">
+            <div class="header__menu-btn" onclick="navigateBack()">
+                <i class='bx bx-arrow-back'></i>
+            </div>
+            <a href="#" class="header__logo">
+                <h1>LearningMadeEasy</h1>
+            </a>
+        </div>
+        <div class="header-middle">
+            <span class="header__search--icon"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                    viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z">
+                    </path>
+                </svg>
+            </span>
+            <input type="text" placeholder="Search for subjects or topics">
+        </div>
+        <div class="header-right">
+            <i class='bx bx-phone-call'></i>
+            <p>+233 555840605</p>
+        </div>
+    </header>
+
+    <h2 id="summary-title">Topic Summary</h2>
+    <div class="summary-container">
+        <p id="summary-text">Loading...</p>
+    </div>
+
+    <!-- Sidebar for topics -->
+    <div class="sidebar" id="sidebar">
+        <span class="close-sidebar" onclick="toggleSidebar()">✖</span>
+        <h4 id="sidebar-title">Topics</h4>
+        <ul class="topic-list" id="sidebar-topics">
+            <!-- Placeholder for topics that will be updated dynamically -->
+        </ul>
+    </div>
+
+    <!-- Button to download the PDF -->
+    <button class="download-pdf" id="downloadPdfBtn">Download PDF<i class='bx bx-file'></i></button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+    <script>
+        function navigateBack() {
+            window.history.back();
+        }
+
+      document.getElementById("downloadPdfBtn").addEventListener("click", () => {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Capture the title of the PDF
+            const pdfTitle = document.getElementById("summary-title").innerText.trim();
+
+            // Clone the content to capture and hide unnecessary elements
+            const contentToCapture = document.body.cloneNode(true);
+            contentToCapture.querySelector("header").remove();
+            contentToCapture.querySelector("#downloadPdfBtn").remove();
+
+            // Temporarily set summary container's overflow to 'visible' and remove height limit
+            const summaryContainer = contentToCapture.querySelector(".summary-container");
+            summaryContainer.style.overflow = "visible";
+            summaryContainer.style.height = "auto";
+
+            // Wrap the content in a container for easier capture
+            const container = document.createElement("div");
+            container.style.width = "210mm"; // A4 width
+            container.style.padding = "20px"; // Padding for aesthetics
+            container.appendChild(contentToCapture);
+            document.body.appendChild(container);
+
+            // Use html2canvas to render the container content as a canvas
+            html2canvas(container, { scale: 2 }).then(canvas => {
+                const imgData = canvas.toDataURL("image/png");
+                const imgWidth = 190; // Fit image within A4 page width
+                const pageHeight = 297; // A4 height in mm
+                const imgHeight = (canvas.height * imgWidth) / canvas.width;
+                let heightLeft = imgHeight;
+                let position = 0;
+
+                // Loop through and add pages if content overflows
+                while (heightLeft > 0) {
+                    doc.addImage(imgData, "PNG", 10, position, imgWidth, imgHeight);
+                    heightLeft -= pageHeight;
+                    position -= pageHeight;
+
+                    // Add new page if content still remains
+                    if (heightLeft > 0) {
+                        doc.addPage();
+                    }
+                }
+
+                // Save the PDF with the summary title as the filename
+                doc.save(`${pdfTitle}.pdf`);
+
+                // Clean up the temporary container
+                container.remove();
+            });
+        });
+
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
